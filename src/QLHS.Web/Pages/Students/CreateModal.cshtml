@@ -1,0 +1,41 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Form
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Tab
+@model QLHS.Web.Pages.Students.CreateModal
+
+@{
+    Layout = null;
+}
+
+<form method="post" id="CreateStudentModal" asp-page="/Students/CreateModal">
+    <abp-modal>
+        <abp-modal-header title="New Student"></abp-modal-header>
+        <abp-modal-body>
+            <abp-tabs name="create-student-modal-tabs">
+                <abp-tab title="Student Information" class="mt-3">
+                    <div id="student-information-wrapper" class="mt-3">
+                        <abp-input asp-for="Student.Name" label="Student Name"/>
+                        <abp-input asp-for="Student.Address" label="Address" type="string"/>
+                        <abp-input asp-for="Student.Dob" type="date" label="Date Of Birth"/>
+                        <abp-select asp-for="Student.TeacherId" asp-items="@Model.TeacherList" label="Teacher">
+                            <option value="" disabled="disabled">Choose a Teacher...</option>
+                        </abp-select>
+                    </div>
+                </abp-tab>
+                <abp-tab title="Rooms">
+                    <div id="room-list-wrapper" class="mt-3">
+                        @for (var i = 0; i < Model.Rooms.Count; i++)
+                        {
+                            var room = Model.Rooms[i];
+                            <abp-input abp-id-name="@Model.Rooms[i].IsSelected" asp-for="@room.IsSelected" label="@room.Name"/>
+                            <input abp-id-name="@Model.Rooms[i].Name" asp-for="@room.Name" />
+                        }
+                    </div>
+                </abp-tab>
+            </abp-tabs>
+        </abp-modal-body>
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+    </abp-modal>
+</form>

@@ -1,0 +1,26 @@
+﻿@page
+@model QLHS.Web.Pages.Rooms.Index
+
+@section scripts
+{
+    <abp-script src="/Pages/Rooms/Index.js" />
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>Rooms</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+                <abp-button id="NewRoomButton"
+                            text="New Room"
+                            icon="plus"
+                            button-type="Primary"/>
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="RoomsTable"></abp-table>
+    </abp-card-body>
+</abp-card>

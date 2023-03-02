@@ -1,0 +1,42 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Form
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Tab
+@model QLHS.Web.Pages.Students.EditModal
+
+@{
+    Layout = null;
+}
+
+<form method="post" id="EditStudentModal" asp-page="/Students/EditModal">
+    <abp-modal>
+        <abp-modal-header title="Update"></abp-modal-header>
+        <abp-modal-body>
+            <abp-tabs name="edit-student-modal-tabs">
+                <abp-tab title="student Information" class="mt-3">
+                    <div id="student-information-wrapper" class="mt-3">
+                        <abp-input asp-for="Id" />
+                        <abp-input asp-for="EditingStudent.Name" label="Student Name"/>
+                        <abp-input asp-for="EditingStudent.Address" label="Address" type="string"/>
+                        <abp-input asp-for="EditingStudent.Dob" type="date" label="Date Of Birth"/>
+                        <abp-select asp-for="EditingStudent.TeacherId" asp-items="@Model.TeacherList" label="Teacher">
+                            <option value="" disabled="disabled">Choose a Teacher...</option>
+                        </abp-select>
+                    </div>
+                </abp-tab>
+                <abp-tab title="Rooms">
+                    <div id="room-list-wrapper" class="mt-3">
+                        @for (var i = 0; i < Model.Rooms.Count; i++)
+                        {
+                            var room = Model.Rooms[i];
+                            <abp-input abp-id-name="@Model.Rooms[i].IsSelected" asp-for="@room.IsSelected" label="@room.Name"/>
+                            <input abp-id-name="@Model.Rooms[i].Name" asp-for="@room.Name" />
+                        }
+                    </div>
+                </abp-tab>
+            </abp-tabs>
+        </abp-modal-body>
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+    </abp-modal>
+</form>

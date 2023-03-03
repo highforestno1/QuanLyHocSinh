@@ -5,9 +5,9 @@ using QLHS.Teachers;
 
 namespace QLHS;
 
-public class QlhsApplicationAutoMapperProfile : Profile
+public class QLHSApplicationAutoMapperProfile : Profile
 {
-    public QlhsApplicationAutoMapperProfile()
+    public QLHSApplicationAutoMapperProfile()
     {
         CreateMap<Room, RoomDto>();
         CreateMap<Room, RoomLookupDto>();

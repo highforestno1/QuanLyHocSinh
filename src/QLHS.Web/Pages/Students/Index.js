@@ -21,7 +21,7 @@ $(function () {
                                 {
                                     text: 'Edit',
                                     action: function (data) {
-                                        editModal.open({ id: data.record.id });
+                                        editModal.open({id: data.record.id});
                                     }
                                 },
                                 {
@@ -32,7 +32,7 @@ $(function () {
                                     action: function (data) {
                                         studentService
                                             .delete(data.record.id)
-                                            .then(function() {
+                                            .then(function () {
                                                 abp.notify.info("Successfully deleted!");
                                                 dataTable.ajax.reload();
                                             });
@@ -48,7 +48,7 @@ $(function () {
                 {
                     title: 'Date Of Birth',
                     data: "dob",
-                    
+
                 },
                 {
                     title: 'Teacher Name',
@@ -59,7 +59,7 @@ $(function () {
                     data: "address"
                 },
                 {
-                    title: 'Rooms',
+                    title: 'Rank',
                     data: "roomNames",
                     render: function (data) {
                         return data.join(", ");

@@ -12,17 +12,21 @@ public class Teacher: FullAuditedAggregateRoot<Guid>
     public DateTime BirthDate { get; set; }
         
     public string ShortBio { get; set; }
+    public string Address { get; set; }
+    public string PhoneNumber { get; set; }
         
     /* This constructor is for deserialization / ORM purpose */
     private Teacher()
     {
     }
 
-    public Teacher(Guid id, [NotNull] string name, DateTime birthDate, [CanBeNull] string shortBio = null)
+    public Teacher(Guid id, [NotNull] string name, DateTime birthDate, string address, string phoneNumber, [CanBeNull] string shortBio = null)
         : base(id)
     {
         SetName(name);
         BirthDate = birthDate;
+        Address = address;
+        PhoneNumber = phoneNumber;
         ShortBio = shortBio;
     }
 

@@ -38,27 +38,27 @@ public class QLHSDataSeederContributor : IDataSeedContributor, ITransientDepende
         if (await _roomRepository.GetCountAsync() <= 0)
         {
             await _roomRepository.InsertAsync(
-                new Room(_guidGenerator.Create(), "Lớp 1")
+                new Room(_guidGenerator.Create(), "Xuất sắc")
             );
 
             await _roomRepository.InsertAsync(
-                new Room(_guidGenerator.Create(), "Lớp 2")
+                new Room(_guidGenerator.Create(), "Giỏi")
             );
 
             await _roomRepository.InsertAsync(
-                new Room(_guidGenerator.Create(), "Lớp 3")
+                new Room(_guidGenerator.Create(), "Khá")
             );
 
             await _roomRepository.InsertAsync(
-                new Room(_guidGenerator.Create(), "Lớp 4")
+                new Room(_guidGenerator.Create(), "Trung bình khá")
             );
 
             await _roomRepository.InsertAsync(
-                new Room(_guidGenerator.Create(), "Lớp 5")
+                new Room(_guidGenerator.Create(), "Trung bình")
             );
 
             await _roomRepository.InsertAsync(
-                new Room(_guidGenerator.Create(), "Lớp 6")
+                new Room(_guidGenerator.Create(), "Yếu")
             );
         }
     }
@@ -72,15 +72,39 @@ public class QLHSDataSeederContributor : IDataSeedContributor, ITransientDepende
                     _guidGenerator.Create(),
                     "Thu Trang",
                     new DateTime(1903, 06, 25),
+                    "Kiến Thuỵ",
+                    "0123456798",
                     "Giáo viên dạy học dễ hiểu, có năng lực chuyên môn cao."
                 )
             );
-
+            
             await _teacherRepository.InsertAsync(
                 new Teacher(
                     _guidGenerator.Create(),
-                    "Thanh Thao",
-                    new DateTime(1964, 06, 22),
+                    "Minh Hà",
+                    new DateTime(1903, 06, 25),
+                    "Kiến Xương",
+                    "0123456798",
+                    "Giáo viên dạy học dễ hiểu, có năng lực chuyên môn cao."
+                )
+            );
+            await _teacherRepository.InsertAsync(
+                new Teacher(
+                    _guidGenerator.Create(),
+                    "Thu Hằng",
+                    new DateTime(1903, 06, 25),
+                    "Kiến An",
+                    "0123456798",
+                    "Giáo viên dạy học dễ hiểu, có năng lực chuyên môn cao."
+                )
+            );
+            await _teacherRepository.InsertAsync(
+                new Teacher(
+                    _guidGenerator.Create(),
+                    "Thu Thuỷ",
+                    new DateTime(1903, 06, 25),
+                    "Hà Nội",
+                    "0123456798",
                     "Giáo viên dạy học dễ hiểu, có năng lực chuyên môn cao."
                 )
             );

@@ -44,6 +44,18 @@ $(function () {
                 {
                     title: 'Name',
                     data: "name"
+                },
+                {
+                    title: 'BirthDate',
+                    data: "birthDate"
+                },
+                {
+                    title: 'Address',
+                    data: "address"
+                },
+                {
+                    title: 'PhoneNumber',
+                    data: "phoneNumber"
                 }
             ]
         })

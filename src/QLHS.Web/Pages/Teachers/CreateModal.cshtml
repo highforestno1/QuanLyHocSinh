@@ -5,13 +5,23 @@
 @{
     Layout = null;
 }
-
-<abp-dynamic-form abp-model="Teacher" asp-page="/Teachers/CreateModal">
+<form method="post" id="CreateTeacherModal" asp-page="/Teachers/CreateModal">
     <abp-modal>
         <abp-modal-header title="New Teacher"></abp-modal-header>
         <abp-modal-body>
-            <abp-form-content />
+            <abp-tabs name="create-Teacher-modal-tabs">
+                <abp-tab title="Teacher Information" class="mt-3">
+                    <div id="Teacher-information-wrapper" class="mt-3">
+                        <abp-input asp-for="Teacher.Name" label="Teacher Name"/>
+                        <abp-input asp-for="Teacher.BirthDate" type="date" label="Birth Date"/>
+                        <abp-input asp-for="Teacher.Address" label="address" type="string"/>
+                        <abp-input asp-for="Teacher.PhoneNumber" label="phoneNumber" type="string"/>
+                    </div>
+                </abp-tab>
+            </abp-tabs>
         </abp-modal-body>
         <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
     </abp-modal>
-</abp-dynamic-form>
+</form>
+
+

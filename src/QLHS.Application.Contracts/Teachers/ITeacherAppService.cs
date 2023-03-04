@@ -5,6 +5,11 @@ using Volo.Abp.Application.Services;
 namespace QLHS.Teachers;
 
 public interface ITeacherAppService :
-    ICrudAppService<TeacherDto, Guid, PagedAndSortedResultRequestDto, CreateUpdateTeacherDto, CreateUpdateTeacherDto>
+    ICrudAppService<
+        TeacherDto,
+        Guid,
+        PagedAndSortedResultRequestDto,
+        CreateUpdateTeacherDto,
+        CreateUpdateTeacherDto>
 {
 }

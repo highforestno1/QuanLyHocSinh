@@ -7,7 +7,7 @@ namespace QLHS.Teachers;
 
 public class Teacher: FullAuditedAggregateRoot<Guid>
 {
-    public string Name { get; private set; }
+    public string Name { get;  set; }
         
     public DateTime BirthDate { get; set; }
         

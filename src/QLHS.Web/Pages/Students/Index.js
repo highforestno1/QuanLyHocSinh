@@ -1,6 +1,7 @@
 $(function () {
     var createModal = new abp.ModalManager(abp.appPath + 'Students/CreateModal');
     var editModal = new abp.ModalManager(abp.appPath + 'Students/EditModal');
+    var viewModal = new abp.ModalManager(abp.appPath + 'Students/ViewModal');
     // var searchQuery = $("input").attr("aria-controls").val()
     var query = () => {
         return {'queryName': $("#NameSearch").val()}
@@ -30,6 +31,12 @@ $(function () {
                                     text: 'Edit',
                                     action: function (data) {
                                         editModal.open({id: data.record.id});
+                                    }
+                                },
+                                {
+                                    text: 'View',
+                                    action: function (data) {
+                                        viewModal.open({id: data.record.id});
                                     }
                                 },
                                 {

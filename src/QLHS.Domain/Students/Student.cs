@@ -11,13 +11,13 @@ public class Student: FullAuditedAggregateRoot<Guid>
 {
     public Guid TeacherId { get; set; }
 
-    public string Name { get; private set; }
+    public string Name { get;  set; }
 
     public DateTime Dob { get; set; }
 
     public string Address { get; set; }
 
-    public ICollection<StudentRoom> Rooms { get; private set; }
+    public ICollection<StudentRoom> Rooms { get;  set; }
 
     private Student()
     {

@@ -19,5 +19,7 @@ public class QlhsWebAutoMapperProfile : Profile
         CreateMap<TeacherDto, CreateUpdateTeacherDto>();
 
         CreateMap<RoomDto, CreateUpdateRoomDto>();
+        CreateMap<StudentDto, StudentViewModel>();
+        CreateMap<TeacherDto, TeacherViewModel>();
     }
 }

@@ -1,6 +1,7 @@
 $(function () {
     var createModal = new abp.ModalManager(abp.appPath + 'Teachers/CreateModal');
     var editModal = new abp.ModalManager(abp.appPath + 'Teachers/EditModal');
+    var viewModal = new abp.ModalManager(abp.appPath + 'Teachers/ViewModal');
 
     var teacherService = qLHS.teachers.teacher;
 
@@ -22,6 +23,11 @@ $(function () {
                                     text: 'Edit',
                                     action: function (data) {
                                         editModal.open({id: data.record.id});
+                                    }
+                                },{
+                                    text: 'View',
+                                    action: function (data) {
+                                        viewModal.open({id: data.record.id});
                                     }
                                 },
                                 {

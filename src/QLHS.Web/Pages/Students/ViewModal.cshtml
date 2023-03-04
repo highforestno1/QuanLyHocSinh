@@ -1,0 +1,38 @@
+﻿@page
+@using QLHS.Localization
+@using Microsoft.Extensions.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@model QLHS.Web.Pages.Students.ViewModal
+
+@{
+    Layout = null;
+}
+<form method="post" asp-page="/Students/ViewModal">
+    <abp-modal>
+        @*<abp-modal-header  title="Student Information"></abp-modal-header>*@
+        <abp-modal-body>
+            <abp-tabs name="view-student-modal-tabs">
+                <abp-tab title="Student Information" class="mt-3">
+
+
+                    <div class="card-body pt-0">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th width="30%">Student Name</th>
+                                <td>@Model.StudentViewModel.Name</td>
+                            </tr>
+                            <tr>
+                                <th width="30%">Student Address</th>
+                                <td>@Model.StudentViewModel.Address</td>
+                            </tr>
+                            <tr>
+                                <th width="30%">Birth Date</th>
+                                <td>@Model.StudentViewModel.Dob</td>
+                            </tr>
+                        </table>
+                    </div>
+                </abp-tab>
+            </abp-tabs>
+        </abp-modal-body>
+    </abp-modal>
+</form>

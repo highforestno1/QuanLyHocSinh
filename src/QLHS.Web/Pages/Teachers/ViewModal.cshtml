@@ -1,0 +1,46 @@
+﻿@page
+@using QLHS.Localization
+@using Microsoft.Extensions.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@model QLHS.Web.Pages.Teachers.ViewModal
+
+@{
+    Layout = null;
+}
+<form method="post" asp-page="/Teachers/ViewModal">
+    <abp-modal>
+        @*<abp-modal-header  title="Teacher Information"></abp-modal-header>*@
+        <abp-modal-body>
+            <abp-tabs name="view-teacher-modal-tabs">
+                <abp-tab title="Teacher Information" class="mt-3">
+
+
+                    <div class="card-body pt-0">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th width="30%">Teacher Name</th>
+                                <td>@Model.TeacherViewModel.Name</td>
+                            </tr>
+                            <tr>
+                                <th width="30%">Teacher Address</th>
+                                <td>@Model.TeacherViewModel.Address</td>
+                            </tr>
+                            <tr>
+                                <th width="30%">Birth Date</th>
+                                <td>@Model.TeacherViewModel.BirthDate</td>
+                            </tr>
+                            <tr>
+                                <th width="30%">Phone Number</th>
+                                <td>@Model.TeacherViewModel.PhoneNumber</td>
+                            </tr>
+                            <tr>
+                                <th width="30%">Short Bio</th>
+                                <td>@Model.TeacherViewModel.ShortBio</td>
+                            </tr>
+                        </table>
+                    </div>
+                </abp-tab>
+            </abp-tabs>
+        </abp-modal-body>
+    </abp-modal>
+</form>

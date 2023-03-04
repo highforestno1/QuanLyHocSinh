@@ -9,12 +9,6 @@ $(function () {
             console.log("A")
             dataTable.ajax.reload();
         })
-    var queryAddress = () => {
-        return {'queryName': $("#AddressSearch").val()}
-    }
-    $("#AddressSearch").on("input", (a) => {
-        dataTable.ajax.reload();
-    })
     
     var studentService = qLHS.students.student;
     var dataTable = $('#StudentsTable').DataTable(

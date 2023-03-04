@@ -12,6 +12,8 @@ public interface IStudentRepository: IRepository<Student, Guid>
         string sorting,
         int skipCount,
         int maxResultCount,
+        string queryName,
+        string queryAddress,
         CancellationToken cancellationToken = default
     );
 

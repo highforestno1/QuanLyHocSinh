@@ -1,9 +1,22 @@
 $(function () {
     var createModal = new abp.ModalManager(abp.appPath + 'Students/CreateModal');
     var editModal = new abp.ModalManager(abp.appPath + 'Students/EditModal');
-
+    // var searchQuery = $("input").attr("aria-controls").val()
+    var query = () => {
+        return {'queryName': $("#NameSearch").val()}
+    }
+    $("#NameSearch").on("input", (n) => {
+            console.log("A")
+            dataTable.ajax.reload();
+        })
+    var queryAddress = () => {
+        return {'queryName': $("#AddressSearch").val()}
+    }
+    $("#AddressSearch").on("input", (a) => {
+        dataTable.ajax.reload();
+    })
+    
     var studentService = qLHS.students.student;
-
     var dataTable = $('#StudentsTable').DataTable(
         abp.libs.datatables.normalizeConfiguration({
             serverSide: true,
@@ -11,7 +24,8 @@ $(function () {
             order: [[1, "asc"]],
             searching: false,
             scrollX: true,
-            ajax: abp.libs.datatables.createAjax(studentService.getList),
+            ajax: abp.libs.datatables.createAjax(studentService.getList, query)
+            ,
             columnDefs: [
                 {
                     title: 'Actions',

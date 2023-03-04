@@ -30,7 +30,8 @@ public class StudentAppService: QLHSAppService, IStudentAppService
         
         public async Task<PagedResultDto<StudentDto>> GetListAsync(StudentGetListInput input)
         {
-            var students = await _studentRepository.GetListAsync(input.Sorting, input.SkipCount, input.MaxResultCount);
+            var students = await _studentRepository.GetListAsync(input.Sorting, input.SkipCount, input.MaxResultCount,
+                input.queryName, input.queryAddress);
             var totalCount = await _studentRepository.CountAsync();
 
             return new PagedResultDto<StudentDto>(totalCount, ObjectMapper.Map<List<StudentWithDetails>, List<StudentDto>>(students));

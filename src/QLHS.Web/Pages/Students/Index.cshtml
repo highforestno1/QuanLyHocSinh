@@ -1,9 +1,11 @@
 ﻿@page
 @model QLHS.Web.Pages.Students.Index
+
 @section scripts
 {
     <abp-script src="/Pages/Students/Index.js"/>
 }
+
 
 <abp-card>
     <abp-card-header>
@@ -11,12 +13,20 @@
             <abp-column size-md="_6">
                 <abp-card-title>Students</abp-card-title>
             </abp-column>
+
             <abp-column size-md="_6" class="text-right">
                 <abp-button id="NewStudentButton"
                             text="New Student"
                             icon="plus"
                             button-type="Primary"/>
+                <div class="dataTable_filters row">
+                    <div id="StudentsTable_filter" class="dataTables_filter">
+                        <input style="width:50%; margin-left: auto"id="NameSearch"
+                               type="search" class="form-control form-control-sm" placeholder="Tìm kiếm" aria-controls="StudentsTable">
+                    </div>
+                </div>
             </abp-column>
+
         </abp-row>
     </abp-card-header>
     <abp-card-body>

@@ -1,6 +1,8 @@
-﻿using AutoMapper;
+using AutoMapper;
 using QLHS.Rooms;
 using QLHS.Students;
+using QLHS.Subjects;
+using QLHS.Subjects.Dtos;
 using QLHS.Teachers;
 
 namespace QLHS;
@@ -18,5 +20,7 @@ public class QLHSApplicationAutoMapperProfile : Profile
         CreateMap<CreateUpdateTeacherDto, Teacher>();
 
         CreateMap<StudentWithDetails, StudentDto>();
+        CreateMap<Subject, SubjectDto>();
+        CreateMap<CreateUpdateSubjectDto, Subject>(MemberList.Source);
     }
 }

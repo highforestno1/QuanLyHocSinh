@@ -1,0 +1,55 @@
+@page
+@using QLHS.Permissions
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using QLHS.Web.Pages.Subjects.Subject
+@using QLHS.Localization
+@using QLHS.Web.Menus
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<QLHSResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["Subject"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:Subject"].Value);
+    PageLayout.Content.MenuItemName = QLHSMenus.Subject;
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Subjects/Subject/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Subjects/Subject/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["Subject"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-end">
+			    @if (await Authorization.IsGrantedAsync(QLHSPermissions.Subject.Create))
+                {
+                <abp-button id="NewSubjectButton"
+                            text="@L["CreateSubject"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-row class="mb-3">
+            <a abp-collapse-id="SubjectCollapse" class="text-secondary">@L["TableFilter"] </a>
+        </abp-row>
+        <abp-collapse-body id="SubjectCollapse">
+            <abp-dynamic-form abp-model="SubjectFilter" id="SubjectFilter" required-symbols="false"/>
+            <hr />
+        </abp-collapse-body>
+        <abp-table striped-rows="true" id="SubjectTable" class="nowrap"/>
+    </abp-card-body>
+</abp-card>

@@ -3,6 +3,49 @@
   "texts": {
     "Menu:Home": "Trang chủ",
     "Welcome": "Chào mừng bạn",
-    "LongWelcomeMessage": "Chào mừng bạn đến ứng dụng. Đây là một dự án khởi nghiệp dựa trên khung ABP. Để biết thêm thông tin, hãy truy cập abp.io."
+    "LongWelcomeMessage": "Chào mừng bạn đến ứng dụng. Đây là một dự án khởi nghiệp dựa trên khung ABP. Để biết thêm thông tin, hãy truy cập abp.io.",
+    "Permission:Subject": "Môn Học",
+    "Permission:Create": "Tạo mới",
+    "Permission:Update": "Chỉnh sửa",
+    "Permission:Delete": "Xoá",
+    "Menu:Subject": "Môn Học",
+    "Subject": "Môn học",
+    "SubjectSubjectName": "Tên môn học",
+    "SubjectTypeSubject": "Loại môn học",
+    "CreateSubject": "Tạo môn học mới",
+    "EditSubject": "Sửa môn học",
+    "SubjectDeletionConfirmationMessage": "Bạn có muốn xoá môn học {0}?",
+    "SuccessfullyDeleted": "Xoá thành công",
+    "TableFilter": "Lọc môn học",
+    "Enum:MonHoc0": "Môn xã hội",
+    "Enum:MonHoc1": "Môn tự nhiên",
+
+    "Student:Actions": "Hành động",
+    "Student:Name": "Họ và tên",
+    "Student:Dob": "Ngày sinh",
+    "Student:TeacherName": "Tên giáo viên",
+    "Student:Address": "Ngày sinh",
+    "Student:Rank": "Ngày sinh",
+    "Student:Edit": "Sửa",
+    "Student:View":"Xem",
+    "Student:Delete":"Xoá",
+    "Student:AddStudent":"Thêm học sinh",
+    "Student:pageStudent":"HỌC SINH",
+    
+    "Teacher": "Giáo viên",
+    "Student": "Học sinh",
+
+    "Teacher:Actions": "Hành động",
+    "Teacher:Name": "Họ và tên",
+    "Teacher:BirthDate": "Ngày sinh",
+    "Teacher:Address": "Ngày sinh",
+    "Teacher:PhoneNumber": "Ngày sinh",
+    "Teacher:Edit": "Sửa",
+    "Teacher:View":"Xem",
+    "Teacher:Delete":"Xoá",
+    "Teacher:addTeacher":"Thêm giáo viên",
+    "Teacher:pageTeacher":"GIÁO VIÊN"
+   
+   
   }
 }

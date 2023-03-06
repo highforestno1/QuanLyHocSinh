@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using QLHS.Students;
-
 namespace QLHS.Web.Models;
 
 public class StudentViewModel

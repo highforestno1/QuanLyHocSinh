@@ -1,5 +1,8 @@
 ﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using QLHS.Localization
 @model QLHS.Web.Pages.Students.Index
+@inject IHtmlLocalizer<QLHSResource> L
 
 @section scripts
 {
@@ -11,12 +14,12 @@
     <abp-card-header>
         <abp-row>
             <abp-column size-md="_6">
-                <abp-card-title>Students</abp-card-title>
+                <abp-card-title>@L["Student:pageStudent"].Value</abp-card-title>
             </abp-column>
 
             <abp-column size-md="_6" class="text-right">
                 <abp-button id="NewStudentButton"
-                            text="New Student"
+                            text='@L["Student:AddStudent"].Value'
                             icon="plus"
                             button-type="Primary"/>
                 <div class="dataTable_filters row">

@@ -12,10 +12,10 @@ namespace QLHS.Web.Pages.Teachers;
 
 public class ViewModal : QLHSPageModel
 {
-    // [HiddenInput]
-    [BindProperty(SupportsGet = true)]
+    /*[HiddenInput] */
+    [BindProperty(SupportsGet = true)] 
     public Guid Id { get; set; }
-        
+
     [BindProperty]
     public TeacherViewModel TeacherViewModel { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
+using QLHS.Permissions;
 using QLHS.Localization;
 using QLHS.MultiTenancy;
 using Volo.Abp.Identity.Web.Navigation;
@@ -37,6 +38,17 @@ public class QlhsMenuContributor : IMenuContributor
             0,
             new ApplicationMenuItem(
                 QLHSMenus.Home,
+                l["Subject"],
+                "Subjects/Subject",
+                icon: "fas fa-home",
+                order: 0,
+                requiredPermissionName: QLHSPermissions.Subject.Default
+            )
+        );
+        context.Menu.Items.Insert(
+            0,
+            new ApplicationMenuItem(
+                QLHSMenus.Home,
                 l["Student"],
                 "~/students",
                 icon: "fas fa-home",
@@ -66,5 +78,11 @@ public class QlhsMenuContributor : IMenuContributor
         administration.SetSubItemOrder(IdentityMenuNames.GroupName, 2);
         administration.SetSubItemOrder(SettingManagementMenuNames.GroupName, 3);
         
+        // if (await context.IsGrantedAsync(QLHSPermissions.Subject.Default))
+        // {
+        //     context.Menu.AddItem(
+        //         new ApplicationMenuItem(QLHSMenus.Subject, l["Menu:Subject"], "/Subjects/Subject")
+        //     );
+        // }
     }
 }

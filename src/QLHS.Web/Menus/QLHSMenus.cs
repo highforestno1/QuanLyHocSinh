@@ -1,4 +1,4 @@
-﻿namespace QLHS.Web.Menus;
+namespace QLHS.Web.Menus;
 
 public class QLHSMenus
 {
@@ -7,4 +7,5 @@ public class QLHSMenus
 
     //Add your menu items here...
 
+    public const string Subject = Prefix + ".Subject";
 }

@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using QLHS.Rooms;
 using QLHS.Students;
 using QLHS.Teachers;
@@ -16,6 +16,7 @@ using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
+using QLHS.Subjects;
 
 namespace QLHS.EntityFrameworkCore;
 
@@ -58,6 +59,7 @@ public class QLHSDbContext :
 
     public DbSet<Teacher> Teachers { get; set; }
     public DbSet<Student> Books { get; set; }
+    public DbSet<Subject> Subjects { get; set; }
     public DbSet<Room> Rooms { get; set; }
     public QLHSDbContext(DbContextOptions<QLHSDbContext> options)
         : base(options)
@@ -135,5 +137,15 @@ public class QLHSDbContext :
                 
                 b.HasIndex(x => new { x.StudentId, x.RoomId });
             });
+
+
+        builder.Entity<Subject>(b =>
+        {
+            b.ToTable(QLHSConsts.DbTablePrefix + "Subjects", QLHSConsts.DbSchema);
+            b.ConfigureByConvention(); 
+            
+
+            /* Configure more properties here */
+        });
     }
 }

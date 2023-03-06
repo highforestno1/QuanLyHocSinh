@@ -1,8 +1,10 @@
+
 $(function () {
     var createModal = new abp.ModalManager(abp.appPath + 'Students/CreateModal');
     var editModal = new abp.ModalManager(abp.appPath + 'Students/EditModal');
     var viewModal = new abp.ModalManager(abp.appPath + 'Students/ViewModal');
     // var searchQuery = $("input").attr("aria-controls").val()
+    var l = abp.localization.getResource('QLHS');
     var query = () => {
         return {'queryName': $("#NameSearch").val()}
     }
@@ -23,24 +25,24 @@ $(function () {
             ,
             columnDefs: [
                 {
-                    title: 'Actions',
+                    title: l('Student:Actions'),
                     rowAction: {
                         items:
                             [
                                 {
-                                    text: 'Edit',
+                                    text: l('Student:Edit'),
                                     action: function (data) {
                                         editModal.open({id: data.record.id});
                                     }
                                 },
                                 {
-                                    text: 'View',
+                                    text: l('Student:View'),
                                     action: function (data) {
                                         viewModal.open({id: data.record.id});
                                     }
                                 },
                                 {
-                                    text: 'Delete',
+                                    text: l('Student:Delete'),
                                     confirmMessage: function (data) {
                                         return "Are you sure to delete the student '" + data.record.name + "'?";
                                     },
@@ -57,24 +59,30 @@ $(function () {
                     }
                 },
                 {
-                    title: 'Name',
+                    title: l('Student:Name'),
                     data: "name"
                 },
                 {
-                    title: 'Date Of Birth',
+                    title: l('Student:Dob'),
                     data: "dob",
-
+                    render: function (data) {
+                        return luxon
+                            .DateTime
+                            .fromISO(data, {
+                                locale: abp.localization.currentCulture.name
+                            }).toLocaleString(luxon.DateTime.DateTime);
+                    }
                 },
                 {
-                    title: 'Teacher Name',
+                    title: l('Student:TeacherName'),
                     data: "teacherName"
                 },
                 {
-                    title: 'Address',
+                    title: l('Student:Address'),
                     data: "address"
                 },
                 {
-                    title: 'Rank',
+                    title: l('Student:Rank'),
                     data: "roomNames",
                     render: function (data) {
                         return data.join(", ");

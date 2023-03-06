@@ -1,5 +1,8 @@
 ﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using QLHS.Localization
 @model QLHS.Web.Pages.Teachers.Index
+@inject IHtmlLocalizer<QLHSResource> L
 
 @section scripts{
     <abp-script src="/Pages/Teachers/Index.js"/>
@@ -9,13 +12,19 @@
     <abp-card-header>
         <abp-row>
             <abp-column size-md="_6">
-                <abp-card-title>Teachers</abp-card-title>
+                <abp-card-title>@L["Teacher:pageTeacher"]</abp-card-title>
             </abp-column>
             <abp-column size-md="_6" class="text-right">
                 <abp-button id="NewTeacherButton"
-                            text="New Teacher"
+                            text='@L["Teacher:addTeacher"].Value'
                             icon="plus"
                             button-type="Primary"/>
+                <div class="dataTable_filters row">
+                                    <div id="TeachersTable_filter" class="dataTables_filter">
+                                        <input style="width:50%; margin-left: auto"id="NameSearch"
+                                               type="search" class="form-control form-control-sm" placeholder="Tìm kiếm" aria-controls="TeachersTable">
+                                    </div>
+                                </div>
             </abp-column>
         </abp-row>
     </abp-card-header>

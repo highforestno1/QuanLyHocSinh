@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\QLHS.Application.Contracts\QLHS.Application.Contracts.csproj" />
     <ProjectReference Include="..\QLHS.Domain.Shared\QLHS.Domain.Shared.csproj" />
   </ItemGroup>
 

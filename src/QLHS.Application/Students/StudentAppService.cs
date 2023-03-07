@@ -7,10 +7,10 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Domain.Repositories;
 
 namespace QLHS.Students;
-
+    
 public class StudentAppService: QLHSAppService, IStudentAppService
 {
-    private readonly IStudentRepository _studentRepository;
+        private readonly IStudentRepository _studentRepository;
         private readonly StudentManager _studentManager;
         private readonly IRepository<Teacher, Guid> _teacherRepository;
         private readonly IRepository<Room, Guid> _roomRepository;

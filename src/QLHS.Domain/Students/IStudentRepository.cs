@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using QLHS.Teachers;
 using Volo.Abp.Domain.Repositories;
 
 namespace QLHS.Students;

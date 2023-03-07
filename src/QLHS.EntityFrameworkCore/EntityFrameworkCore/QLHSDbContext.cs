@@ -57,7 +57,7 @@ public class QLHSDbContext :
 
     #endregion
 
-    public DbSet<Teacher> Teachers { get; set; }
+    public DbSet<Teachers.Teacher> Teachers { get; set; }
     public DbSet<Student> Books { get; set; }
     public DbSet<Subject> Subjects { get; set; }
     public DbSet<Room> Rooms { get; set; }
@@ -83,7 +83,7 @@ public class QLHSDbContext :
         builder.ConfigureTenantManagement();
 
         /* Configure your own tables/entities inside here */
-            builder.Entity<Teacher>(b =>
+            builder.Entity<Teachers.Teacher>(b =>
             {
                 b.ToTable(QLHSConsts.DbTablePrefix + "Teachers" + QLHSConsts.DbSchema);
                 b.ConfigureByConvention();
@@ -107,7 +107,7 @@ public class QLHSDbContext :
                     .IsRequired();
 
                 //one-to-many relationship with Teacher table
-                b.HasOne<Teacher>().WithMany().HasForeignKey(x => x.TeacherId).IsRequired();
+                b.HasOne<Teachers.Teacher>().WithMany().HasForeignKey(x => x.TeacherId).IsRequired();
 
                 //many-to-many relationship with Category table => BookRooms
                 b.HasMany(x => x.Rooms).WithOne().HasForeignKey(x => x.StudentId).IsRequired();

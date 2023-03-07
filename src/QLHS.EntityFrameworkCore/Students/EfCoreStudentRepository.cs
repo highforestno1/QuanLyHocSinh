@@ -19,12 +19,8 @@ public class EfCoreStudentRepository : EfCoreRepository<QLHSDbContext, Student, 
     {
     }
 
-    public async Task<List<StudentWithDetails>> GetListAsync(
-        string sorting,
-        int skipCount,
-        int maxResultCount,
-        string queryName,
-        string queryAddress,
+    public async Task<List<StudentWithDetails>> GetListAsync(string sorting, int skipCount, int maxResultCount,
+        string queryName, string queryAddress,
         CancellationToken cancellationToken = default)
     {
         var query = await ApplyFilterAsync();
@@ -32,8 +28,6 @@ public class EfCoreStudentRepository : EfCoreRepository<QLHSDbContext, Student, 
         return await query
             .WhereIf(!queryName.IsNullOrWhiteSpace(),
                 s => s.Name.ToLower().Contains(queryName.ToLower()))
-            .WhereIf(!queryAddress.IsNullOrWhiteSpace(),
-                s => s.Address.ToLower().Contains(queryAddress.ToLower()))
             .OrderBy(!string.IsNullOrWhiteSpace(sorting) ? sorting : nameof(Student.Name))
             .PageBy(skipCount, maxResultCount)
             .ToListAsync(GetCancellationToken(cancellationToken));
@@ -54,7 +48,7 @@ public class EfCoreStudentRepository : EfCoreRepository<QLHSDbContext, Student, 
 
         return (await GetDbSetAsync())
             .Include(x => x.Rooms)
-            .Join(dbContext.Set<Teacher>(), student => student.TeacherId, teacher => teacher.Id,
+            .Join(dbContext.Set<Teachers.Teacher>(), student => student.TeacherId, teacher => teacher.Id,
                 (student, teacher) => new { student, teacher })
             .Select(x => new StudentWithDetails
             {

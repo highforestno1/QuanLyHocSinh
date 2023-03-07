@@ -3,7 +3,6 @@ $(function () {
     var createModal = new abp.ModalManager(abp.appPath + 'Students/CreateModal');
     var editModal = new abp.ModalManager(abp.appPath + 'Students/EditModal');
     var viewModal = new abp.ModalManager(abp.appPath + 'Students/ViewModal');
-    // var searchQuery = $("input").attr("aria-controls").val()
     var l = abp.localization.getResource('QLHS');
     var query = () => {
         return {'queryName': $("#NameSearch").val()}

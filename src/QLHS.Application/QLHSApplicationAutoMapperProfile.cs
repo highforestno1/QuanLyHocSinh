@@ -22,5 +22,6 @@ public class QLHSApplicationAutoMapperProfile : Profile
         CreateMap<StudentWithDetails, StudentDto>();
         CreateMap<Subject, SubjectDto>();
         CreateMap<CreateUpdateSubjectDto, Subject>(MemberList.Source);
+        CreateMap<TeacherWithDetails, TeacherDto>();
     }
 }

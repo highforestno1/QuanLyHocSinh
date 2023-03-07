@@ -2,7 +2,7 @@
 
 namespace QLHS.Web.Models;
 
-public abstract class TeacherViewModel
+public class TeacherViewModel
 {
     public string Name { get;  set; }
         

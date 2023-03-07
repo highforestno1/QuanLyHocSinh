@@ -20,7 +20,8 @@ public class Teacher: FullAuditedAggregateRoot<Guid>
     {
     }
 
-    public Teacher(Guid id, [NotNull] string name, DateTime birthDate, string address, string phoneNumber, [CanBeNull] string shortBio = null)
+    public Teacher(Guid id, [NotNull] string name, DateTime birthDate, string address, string phoneNumber, 
+        [CanBeNull] string shortBio = null)
         : base(id)
     {
         SetName(name);

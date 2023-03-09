@@ -27,27 +27,41 @@ public class QlhsMenuContributor : IMenuContributor
         context.Menu.Items.Insert(
             0,
             new ApplicationMenuItem(
-                QLHSMenus.Home, l["Menu:Home"], "~/", icon: "fas fa-home", 
+                QLHSMenus.Home, l["Menu:Home"], "~/", icon: "fas fa-home",
                 order: 1
             )
+        );
+        context.Menu.Items.Insert(
+            0,
+            new ApplicationMenuItem(QLHSMenus.Home, l["Teacher"], "~/teachers", icon: "	fa fa-user-circle-o",
+                    order: 2
+                ).AddItem(new ApplicationMenuItem(QLHSMenus.Home, l["Teacher 1"], "~/teachers/",
+                    icon: "fa fa-user-circle-o"))
+                .AddItem(new ApplicationMenuItem(QLHSMenus.Home, l["Teacher 2"], "~/teachers/",
+                    icon: "fa fa-user-circle-o"))
+                .AddItem(new ApplicationMenuItem(QLHSMenus.Home, l["Teacher 3"], "~/teachers/",
+                    icon: "fa fa-user-circle-o"))
+                .AddItem(new ApplicationMenuItem(QLHSMenus.Home, l["Teacher 4"], "~/teachers/",
+                    icon: "fa fa-user-circle-o"))
+        );
+        context.Menu.Items.Insert(
+            0,
+            new ApplicationMenuItem(QLHSMenus.Home, l["Student"], "~/students", icon: "fa fa-user",
+                    order: 3
+                ).AddItem(new ApplicationMenuItem(QLHSMenus.Home, l["Student 1"], "~/students/",
+                    icon: "fa fa-user"))
+                .AddItem(new ApplicationMenuItem(QLHSMenus.Home, l["Student 2"], "~/students/",
+                    icon: "fa fa-user"))
+                .AddItem(new ApplicationMenuItem(QLHSMenus.Home, l["Student 3"], "~/students/",
+                    icon: "fa fa-user"))
+                .AddItem(new ApplicationMenuItem(QLHSMenus.Home, l["Student 4"], "~/students/",
+                    icon: "fa fa-user"))
         );
         context.Menu.Items.Insert(
             0,
             new ApplicationMenuItem(QLHSMenus.Home, l["Subject"], "Subjects/Subject", icon: "fas fa-file-alt",
                 order: 4,
                 requiredPermissionName: QLHSPermissions.Subject.Default
-            )
-        );
-        context.Menu.Items.Insert(
-            0,
-            new ApplicationMenuItem(QLHSMenus.Home, l["Student"], "~/students", icon: "fa fa-user",
-                order: 3
-            )
-        );
-        context.Menu.Items.Insert(
-            0,
-            new ApplicationMenuItem(QLHSMenus.Home, l["Teacher"], "~/teachers", icon: "	fa fa-user-circle-o",
-                order: 2
             )
         );
 
@@ -62,7 +76,7 @@ public class QlhsMenuContributor : IMenuContributor
 
         administration.SetSubItemOrder(IdentityMenuNames.GroupName, 2);
         administration.SetSubItemOrder(SettingManagementMenuNames.GroupName, 3);
-        
+
         // if (await context.IsGrantedAsync(QLHSPermissions.Subject.Default))
         // {
         //     context.Menu.AddItem(

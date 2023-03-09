@@ -19,6 +19,8 @@ public class ViewModal : QLHSPageModel
     [BindProperty]
     public StudentViewModel StudentViewModel { get; set; }
 
+    public TeacherViewModel TeacherViewModel { get; set; }
+
     private readonly IStudentAppService _studentAppService;
 
     public ViewModal(IStudentAppService studentAppService)

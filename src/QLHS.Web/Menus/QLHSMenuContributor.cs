@@ -27,42 +27,27 @@ public class QlhsMenuContributor : IMenuContributor
         context.Menu.Items.Insert(
             0,
             new ApplicationMenuItem(
-                QLHSMenus.Home,
-                l["Menu:Home"],
-                "~/",
-                icon: "fas fa-home",
-                order: 0
+                QLHSMenus.Home, l["Menu:Home"], "~/", icon: "fas fa-home", 
+                order: 1
             )
         );
         context.Menu.Items.Insert(
             0,
-            new ApplicationMenuItem(
-                QLHSMenus.Home,
-                l["Subject"],
-                "Subjects/Subject",
-                icon: "fas fa-home",
-                order: 0,
+            new ApplicationMenuItem(QLHSMenus.Home, l["Subject"], "Subjects/Subject", icon: "fas fa-file-alt",
+                order: 4,
                 requiredPermissionName: QLHSPermissions.Subject.Default
             )
         );
         context.Menu.Items.Insert(
             0,
-            new ApplicationMenuItem(
-                QLHSMenus.Home,
-                l["Student"],
-                "~/students",
-                icon: "fas fa-home",
-                order: 0
+            new ApplicationMenuItem(QLHSMenus.Home, l["Student"], "~/students", icon: "fa fa-user",
+                order: 3
             )
         );
         context.Menu.Items.Insert(
             0,
-            new ApplicationMenuItem(
-                QLHSMenus.Home,
-                l["Teacher"],
-                "~/teachers",
-                icon: "fas fa-home",
-                order: 0
+            new ApplicationMenuItem(QLHSMenus.Home, l["Teacher"], "~/teachers", icon: "	fa fa-user-circle-o",
+                order: 2
             )
         );
 

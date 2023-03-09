@@ -1,9 +1,13 @@
 ﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @using QLHS.Localization
 @using Microsoft.Extensions.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Tab
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Table
 @model QLHS.Web.Pages.Teachers.ViewModal
-
+@inject IHtmlLocalizer<QLHSResource> L
 @{
     Layout = null;
 }
@@ -12,22 +16,26 @@
         @*<abp-modal-header  title="Teacher Information"></abp-modal-header>*@
         <abp-modal-body>
             <abp-tabs name="view-teacher-modal-tabs">
-                <abp-tab title="Teacher Information" class="mt-3">
+                <abp-tab title=@L["Teacher Infomation"].Value class="mt-3">
 
 
                     <div class="card-body pt-0">
                         <table class="table table-bordered">
                             <tr>
-                                <th width="30%">Teacher Name</th>
+                                <th width="30%">@L["Teacher Name"].Value</th>
                                 <td>@Model.TeacherViewModel.Name</td>
                             </tr>
                             <tr>
-                                <th width="30%">Teacher Address</th>
+                                <th width="30%">@L["Teacher Address"].Value</th>
                                 <td>@Model.TeacherViewModel.Address</td>
                             </tr>
                             <tr>
-                                <th width="30%">Birth Date</th>
+                                <th width="30%">@L["Teacher DOB"].Value</th>
                                 <td>@Model.TeacherViewModel.BirthDate</td>
+                            </tr>
+                            <tr>
+                                <th width="30%">@L["Teacher ShortBio"].Value</th>
+                                <td>@Model.TeacherViewModel.ShortBio</td>
                             </tr>
                         </table>
                     </div>

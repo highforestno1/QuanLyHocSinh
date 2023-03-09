@@ -1,22 +1,25 @@
 ﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using QLHS.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
 @model QLHS.Web.Pages.Teachers.CreateModal
+@inject IHtmlLocalizer<QLHSResource> L
 
 @{
     Layout = null;
 }
 <form method="post" id="CreateTeacherModal" asp-page="/Teachers/CreateModal">
     <abp-modal>
-        <abp-modal-header title="New Teacher"></abp-modal-header>
+        <abp-modal-header title=@L["New Teacher"].Value></abp-modal-header>
         <abp-modal-body>
             <abp-tabs name="create-Teacher-modal-tabs">
-                <abp-tab title="Teacher Information" class="mt-3">
+                <abp-tab title=@L["Teacher Information"].Value class="mt-3">
                     <div id="Teacher-information-wrapper" class="mt-3">
-                        <abp-input asp-for="Teacher.Name" label="Teacher Name"/>
-                        <abp-input asp-for="Teacher.BirthDate" type="date" label="Birth Date"/>
-                        <abp-input asp-for="Teacher.ShortBio" label="Short Bio"/>
-                        <abp-input asp-for="Teacher.Address" label="address" type="string"/>
-                        <abp-input asp-for="Teacher.PhoneNumber" label="phoneNumber" type="string"/>
+                        <abp-input asp-for="Teacher.Name" label=@L["Teacher Name"].Value/>
+                        <abp-input asp-for="Teacher.BirthDate" type="date" label=@L["Teacher DOB"].Value/>
+                        <abp-input asp-for="Teacher.ShortBio" label=@L["Teacher ShortBio"].Value/>
+                        <abp-input asp-for="Teacher.Address" label=@L["Teacher Address"].Value type="string"/>
+                        <abp-input asp-for="Teacher.PhoneNumber" label=@L["Teacher PhoneNumber"].Value type="string"/>
                     </div>
                 </abp-tab>
             </abp-tabs>

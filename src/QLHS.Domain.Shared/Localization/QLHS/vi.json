@@ -31,6 +31,15 @@
     "Student:Delete":"Xoá",
     "Student:AddStudent":"Thêm học sinh",
     "Student:pageStudent":"HỌC SINH",
+    "New Student": "Thêm học sinh",
+    "Update Student": "Sửa học sinh",
+    "View Student": "Xem học sinh",
+    "Student Information": "Thông tin học sinh",
+    "Student Name":"Tên học sinh",
+    "Student Address": "Địa chỉ",
+    "Student DOB":"Ngày sinh",
+    "Student Teacher": "Tên giáo viên",
+    "Student Rooms": "Xếp hạng",
     
     "Teacher": "Giáo viên",
     "Student": "Học sinh",
@@ -44,7 +53,15 @@
     "Teacher:View":"Xem",
     "Teacher:Delete":"Xoá",
     "Teacher:addTeacher":"Thêm giáo viên",
-    "Teacher:pageTeacher":"GIÁO VIÊN"
+    "Teacher:pageTeacher":"GIÁO VIÊN",
+    "New Teacher": "Thêm giáo viên",
+    "Update Teacher": "Sửa giáo viên",
+    "Teacher Information":"Thông tin giáo viên",
+    "Teacher Name": "Tên giáo viên",
+    "Teacher DOB":"Ngày sinh",
+    "Teacher ShortBio": "Tiểu sử ngắn",
+    "Teacher Address":"Địa chỉ",
+    "Teacher PhoneNumber": "Số điện thoại"
    
    
   }

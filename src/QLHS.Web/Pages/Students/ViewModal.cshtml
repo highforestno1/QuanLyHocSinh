@@ -1,8 +1,10 @@
 ﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
 @using QLHS.Localization
 @using Microsoft.Extensions.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
 @model QLHS.Web.Pages.Students.ViewModal
+@inject IHtmlLocalizer<QLHSResource> L
 
 @{
     Layout = null;
@@ -12,21 +14,21 @@
         @*<abp-modal-header  title="Student Information"></abp-modal-header>*@
         <abp-modal-body>
             <abp-tabs name="view-student-modal-tabs">
-                <abp-tab title="Student Information" class="mt-3">
+                <abp-tab title=@L["View Student"].Value class="mt-3">
 
 
                     <div class="card-body pt-0">
                         <table class="table table-bordered">
                             <tr>
-                                <th width="30%">Student Name</th>
+                                <th width="30%">@L["Student Name"].Value</th>
                                 <td>@Model.StudentViewModel.Name</td>
                             </tr>
                             <tr>
-                                <th width="30%">Student Address</th>
+                                <th width="30%">@L["Student Address"].Value</th>
                                 <td>@Model.StudentViewModel.Address</td>
                             </tr>
                             <tr>
-                                <th width="30%">Birth Date</th>
+                                <th width="30%">@L["Student DOB"].Value</th>
                                 <td>@Model.StudentViewModel.Dob</td>
                             </tr>
                         </table>
